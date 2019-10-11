@@ -12,7 +12,7 @@ echo "                                                                    ";
 function installDebian () {
     sudo apt-get update;
     sudo apt-get -y install git python2.7 python-pip postgresql apache2;
-    pip2 install requests psutil;
+    sudo apt-get install python-requests python-psutil -y;
     installMSF;
 }
 
@@ -78,7 +78,7 @@ function installMSF () {
 
 function install () {
     case "$(uname -a)" in
-        *Debian*|*Ubuntu*)
+        *Debian*|*Ubuntu*|*Linux*)
             installDebian;
             ;;
         *Fedora*)
